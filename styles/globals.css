@@ -1034,3 +1034,57 @@ span {
   display: block; /* Ensures no additional margin */
   object-fit: contain; /* Fit the image properly */
 }
+.status-popup {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(39, 35, 38, 0);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.info-box {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  background-color: #414141;
+  border-radius: 10px;
+  color: #dbd6d6;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 20px;
+}
+
+.info-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 20px;
+  height: 2px;
+  background-color: #808080;
+  transform: translateY(-50%);
+}
+
+.vehicle-image {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  width: 800px; /* Adjust image width to a larger size */
+  margin-left: 20px; /* Space between image and surrounding elements */
+}
+
+.vehicle-image img {
+  width: 100%; /* Ensure image takes up full width of its container */
+  height: auto; /* Maintain aspect ratio of the image */
+  display: block; /* Ensure no additional margin or padding */
+  object-fit: contain; /* Fit the image within the container while preserving aspect ratio */
+}
+
