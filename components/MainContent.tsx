@@ -3,7 +3,8 @@ import CarModePopup from './CarModePopup';
 import ByWirePopup from './ByWirePopup';
 import NewPopup from './TV';
 import CarDataLevel1 from './CarDataLevel1';
-import CarStatusUI from './CarStatusUI'; // Import the new CarStatusUI component
+import CarDataLevel3 from './CarDataLevel3'; 
+import CarStatusUI from './CarStatusUI';
 
 const MainContent: React.FC = () => {
   const [activeSidebar, setActiveSidebar] = useState<string>('Battery');
@@ -12,7 +13,8 @@ const MainContent: React.FC = () => {
   const [showByWirePopup, setShowByWirePopup] = useState<boolean>(false);
   const [showNewPopup, setShowNewPopup] = useState<boolean>(false);
   const [showCarDataLevel1, setShowCarDataLevel1] = useState<boolean>(false);
-  const [showCarDataLevel2, setShowCarDataLevel2] = useState<boolean>(false); // Add state for Car Data Level 2
+  const [showCarDataLevel2, setShowCarDataLevel2] = useState<boolean>(false);
+  const [showCarDataLevel3, setShowCarDataLevel3] = useState<boolean>(false);
 
   const handleSidebarClick = (category: string) => {
     setActiveSidebar(category);
@@ -21,7 +23,8 @@ const MainContent: React.FC = () => {
     setShowByWirePopup(false);
     setShowNewPopup(false);
     setShowCarDataLevel1(false);
-    setShowCarDataLevel2(false); // Ensure Car Data Level 2 popup is hidden when changing main category
+    setShowCarDataLevel2(false);
+    setShowCarDataLevel3(false);
   };
 
   const handleMiniSidebarClick = (buttonLabel: string) => {
@@ -30,7 +33,8 @@ const MainContent: React.FC = () => {
     setShowByWirePopup(buttonLabel === 'Bywire System');
     setShowNewPopup(buttonLabel === 'TV');
     setShowCarDataLevel1(buttonLabel === 'Car Data Level1');
-    setShowCarDataLevel2(buttonLabel === 'Car Data Level2'); // Show Car Data Level 2 popup when this option is selected
+    setShowCarDataLevel2(buttonLabel === 'Car Data Level2');
+    setShowCarDataLevel3(buttonLabel === 'Car Data Level3');
   };
 
   const miniSidebarButtons: { [key: string]: string[] } = {
@@ -78,7 +82,8 @@ const MainContent: React.FC = () => {
       {showByWirePopup && <ByWirePopup onClose={() => setShowByWirePopup(false)} />}
       {showNewPopup && <NewPopup onClose={() => setShowNewPopup(false)} />}
       {showCarDataLevel1 && <CarDataLevel1 onClose={() => setShowCarDataLevel1(false)} />}
-      {showCarDataLevel2 && <CarStatusUI />} {/* Render the CarStatusUI when Car Data Level 2 is selected */}
+      {showCarDataLevel2 && <CarStatusUI onClose={() => setShowCarDataLevel2(false)} />}
+      {showCarDataLevel3 && <CarDataLevel3 />} {/* Render the CarDataLevel3 when Car Data Level 3 is selected */}
     </div>
   );
 };

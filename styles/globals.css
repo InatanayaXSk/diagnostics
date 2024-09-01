@@ -1087,4 +1087,91 @@ span {
   display: block; /* Ensure no additional margin or padding */
   object-fit: contain; /* Fit the image within the container while preserving aspect ratio */
 }
+.car-level3-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.car-level3-info-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+  padding: 20px;
+  border-radius: 8px;
+  margin-right: 900px;
+  max-width: 30%;
+}
+
+.car-level3-close-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.car-level3-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.car-level3-status-popup {
+  background: rgba(34, 34, 36, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.car-level3-status-popup h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.car-level3-status-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.car-level3-status-label {
+  color: #aaaaaa;
+}
+
+.car-level3-status-value {
+  font-weight: bold;
+}
+
+.car-level3-image-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 450px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.car-level3-image {
+  flex-shrink: 0;
+  width: 700px;
+  margin-left: 20px;
+}
+
+.car-level3-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
