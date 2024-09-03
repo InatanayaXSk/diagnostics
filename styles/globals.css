@@ -891,6 +891,7 @@ span {
   margin-left: 0;
   position: relative;
   z-index: 1;
+  
 }
 
 .new-popup-section {
@@ -907,6 +908,8 @@ span {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+ 
+ 
 }
 
 .status-row {
@@ -1104,7 +1107,7 @@ span {
   background-color: #242424;
   padding: 20px;
   border-radius: 8px;
-  margin-right: 900px;
+  margin-right: 380px;
   max-width: 30%;
 }
 
@@ -1123,6 +1126,7 @@ span {
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  margin-right: 30px;
 }
 
 .car-level3-status-popup {
@@ -1131,7 +1135,7 @@ span {
   padding: 15px;
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .car-level3-status-popup h3 {
@@ -1159,7 +1163,7 @@ span {
   justify-content: flex-end;
   width: 450px;
   height: auto;
-  flex-shrink: 0;
+  flex-shrink: 0; 
 }
 
 .car-level3-image {

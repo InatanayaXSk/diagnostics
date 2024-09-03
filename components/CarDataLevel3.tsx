@@ -11,23 +11,23 @@ const CarDataLevel3 = () => {
                         <h3 className="car-level3-title">Car Data Level 3</h3>
                         <div className="car-level3-status-row">
                             <span className="car-level3-status-label">CAN 1</span>
-                            <span className="car-level3-status-value">ACTIVE</span>
+                            <span className="car-level3-status-value">      STATUS   ACTIVE</span>
                         </div>
                         <div className="car-level3-status-row">
                             <span className="car-level3-status-label">CAN 2</span>
-                            <span className="car-level3-status-value">ACTIVE</span>
+                            <span className="car-level3-status-value">       STATUS   ACTIVE</span>
                         </div>
                         <div className="car-level3-status-row">
                             <span className="car-level3-status-label">CAN 3</span>
-                            <span className="car-level3-status-value">ACTIVE</span>
+                            <span className="car-level3-status-value">       STATUS   ACTIVE</span>
                         </div>
                         <div className="car-level3-status-row">
                             <span className="car-level3-status-label">Internet</span>
-                            <span className="car-level3-status-value">ACTIVE</span>
+                            <span className="car-level3-status-value">       STATUS   ACTIVE</span>
                         </div>
                         <div className="car-level3-status-row">
                             <span className="car-level3-status-label">Ethernet</span>
-                            <span className="car-level3-status-value">ACTIVE</span>
+                            <span className="car-level3-status-value">       STATUS   ACTIVE</span>
                         </div>
                     </div>
                 </div>
