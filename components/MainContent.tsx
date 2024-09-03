@@ -3,8 +3,9 @@ import CarModePopup from './CarModePopup';
 import ByWirePopup from './ByWirePopup';
 import NewPopup from './TV';
 import CarDataLevel1 from './CarDataLevel1';
-import CarDataLevel3 from './CarDataLevel3'; 
-import CarStatusUI from './CarStatusUI';
+import CarDataLevel3 from './CarDataLevel3';
+import VehicleStatusDisplay from './VehicleStatusDisplay'; // Import the VehicleStatusDisplay component
+import CarStatusUI from './CarStatusUI'; // Assuming this is the correct component for Car Data Level 2
 
 const MainContent: React.FC = () => {
   const [activeSidebar, setActiveSidebar] = useState<string>('Battery');
@@ -15,6 +16,7 @@ const MainContent: React.FC = () => {
   const [showCarDataLevel1, setShowCarDataLevel1] = useState<boolean>(false);
   const [showCarDataLevel2, setShowCarDataLevel2] = useState<boolean>(false);
   const [showCarDataLevel3, setShowCarDataLevel3] = useState<boolean>(false);
+  const [showCarDataLevel4, setShowCarDataLevel4] = useState<boolean>(false); // State for Car Data Level 4
 
   const handleSidebarClick = (category: string) => {
     setActiveSidebar(category);
@@ -25,6 +27,7 @@ const MainContent: React.FC = () => {
     setShowCarDataLevel1(false);
     setShowCarDataLevel2(false);
     setShowCarDataLevel3(false);
+    setShowCarDataLevel4(false); // Reset Car Data Level 4 state
   };
 
   const handleMiniSidebarClick = (buttonLabel: string) => {
@@ -35,6 +38,7 @@ const MainContent: React.FC = () => {
     setShowCarDataLevel1(buttonLabel === 'Car Data Level1');
     setShowCarDataLevel2(buttonLabel === 'Car Data Level2');
     setShowCarDataLevel3(buttonLabel === 'Car Data Level3');
+    setShowCarDataLevel4(buttonLabel === 'Car Data Level4'); // Show Car Data Level 4
   };
 
   const miniSidebarButtons: { [key: string]: string[] } = {
@@ -82,8 +86,9 @@ const MainContent: React.FC = () => {
       {showByWirePopup && <ByWirePopup onClose={() => setShowByWirePopup(false)} />}
       {showNewPopup && <NewPopup onClose={() => setShowNewPopup(false)} />}
       {showCarDataLevel1 && <CarDataLevel1 onClose={() => setShowCarDataLevel1(false)} />}
-      {showCarDataLevel2 && <CarStatusUI onClose={() => setShowCarDataLevel2(false)} />}
+      {showCarDataLevel2 && <CarStatusUI onClose={() => setShowCarDataLevel2(false)} />} {/* Render CarStatusUI for Car Data Level 2 */}
       {showCarDataLevel3 && <CarDataLevel3 />} {/* Render the CarDataLevel3 when Car Data Level 3 is selected */}
+      {showCarDataLevel4 && <VehicleStatusDisplay />} {/* Render VehicleStatusDisplay when Car Data Level 4 is selected */}
     </div>
   );
 };
