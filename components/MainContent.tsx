@@ -6,6 +6,7 @@ import CarDataLevel1 from './CarDataLevel1';
 import CarDataLevel3 from './CarDataLevel3';
 import VehicleStatusDisplay from './VehicleStatusDisplay'; // Import the VehicleStatusDisplay component
 import CarStatusUI from './CarStatusUI'; // Assuming this is the correct component for Car Data Level 2
+import CarDataDisplay from './CarDataDisplay'; // Import the CarDataDisplay component
 
 const MainContent: React.FC = () => {
   const [activeSidebar, setActiveSidebar] = useState<string>('Battery');
@@ -17,30 +18,53 @@ const MainContent: React.FC = () => {
   const [showCarDataLevel2, setShowCarDataLevel2] = useState<boolean>(false);
   const [showCarDataLevel3, setShowCarDataLevel3] = useState<boolean>(false);
   const [showCarDataLevel4, setShowCarDataLevel4] = useState<boolean>(false); // State for Car Data Level 4
+  const [showCarDataDisplay, setShowCarDataDisplay] = useState<boolean>(false); // State for Car Data Display
 
+  // Handle main sidebar clicks
   const handleSidebarClick = (category: string) => {
     setActiveSidebar(category);
     setActiveMiniSidebar(null);
-    setShowCarModePopup(false);
-    setShowByWirePopup(false);
-    setShowNewPopup(false);
-    setShowCarDataLevel1(false);
-    setShowCarDataLevel2(false);
-    setShowCarDataLevel3(false);
-    setShowCarDataLevel4(false); // Reset Car Data Level 4 state
+    resetPopups();
+
+    // Show CarDataDisplay only when the "Car Status" sidebar is clicked
+    if (category === 'Car Status') {
+      setShowCarDataDisplay(false); // Ensure it only shows when a relevant mini-sidebar button is clicked
+    } else {
+      setShowCarDataDisplay(false);
+    }
   };
 
+  // Handle mini-sidebar clicks
   const handleMiniSidebarClick = (buttonLabel: string) => {
     setActiveMiniSidebar(buttonLabel);
+    resetPopups();
+
+    // Show specific popups based on the button clicked
     setShowCarModePopup(buttonLabel === 'Car Mode');
     setShowByWirePopup(buttonLabel === 'Bywire System');
     setShowNewPopup(buttonLabel === 'TV');
     setShowCarDataLevel1(buttonLabel === 'Car Data Level1');
     setShowCarDataLevel2(buttonLabel === 'Car Data Level2');
     setShowCarDataLevel3(buttonLabel === 'Car Data Level3');
-    setShowCarDataLevel4(buttonLabel === 'Car Data Level4'); // Show Car Data Level 4
+    setShowCarDataLevel4(buttonLabel === 'Car Data Level4');
+
+    // Show CarDataDisplay if "Error Statuses" is clicked in the mini sidebar
+    setShowCarDataDisplay(buttonLabel === 'Error Statuses');
   };
 
+  // Helper function to reset all popups
+  const resetPopups = () => {
+    setShowCarModePopup(false);
+    setShowByWirePopup(false);
+    setShowNewPopup(false);
+    setShowCarDataLevel1(false);
+    setShowCarDataLevel2(false);
+    setShowCarDataLevel3(false);
+    setShowCarDataLevel4(false);
+    setShowCarDataDisplay(false);
+  };
+
+  // Define buttons for each main sidebar category
   const miniSidebarButtons: { [key: string]: string[] } = {
     'Battery': ['Voltage and Current', 'Charge Level', 'Battery Health', 'Cell Voltages', 'Charging Status', 'Battery Status'],
     'OBC': ['AC Voltage and Current', 'AC Power', 'Charging Time', 'DC Voltage and Current', 'OBC Status', 'Temperature Data'],
@@ -51,17 +75,16 @@ const MainContent: React.FC = () => {
     'Vehicular Control': ['Low Level Controls', 'PID Master Values', 'PID Controls', 'Control Unit 1', 'Control Unit 2', 'Control Unit 3'],
   };
 
+  // Render mini sidebar based on the active main sidebar
   const renderMiniSidebar = () => (
     <div className="mini-sidebar">
-      {miniSidebarButtons[activeSidebar].map((buttonLabel) => (
+      {miniSidebarButtons[activeSidebar]?.map((buttonLabel) => (
         <button
           key={buttonLabel}
           className={`mini-sidebar-button ${activeMiniSidebar === buttonLabel ? 'active' : ''}`}
           onClick={() => handleMiniSidebarClick(buttonLabel)}
         >
-          <div className="mini-sidebar-text">
-            {buttonLabel}
-          </div>
+          <div className="mini-sidebar-text">{buttonLabel}</div>
         </button>
       ))}
     </div>
@@ -89,6 +112,7 @@ const MainContent: React.FC = () => {
       {showCarDataLevel2 && <CarStatusUI onClose={() => setShowCarDataLevel2(false)} />} {/* Render CarStatusUI for Car Data Level 2 */}
       {showCarDataLevel3 && <CarDataLevel3 />} {/* Render the CarDataLevel3 when Car Data Level 3 is selected */}
       {showCarDataLevel4 && <VehicleStatusDisplay />} {/* Render VehicleStatusDisplay when Car Data Level 4 is selected */}
+      {showCarDataDisplay && <CarDataDisplay />} {/* Show CarDataDisplay based on state */}
     </div>
   );
 };
