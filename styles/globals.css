@@ -831,7 +831,7 @@ span {
   align-items: center;
   justify-content: center; /* Center the content vertically */
   margin-bottom: 20px; /* Added bottom margin for extra vertical spacing */
-
+  margin-left: 850px;
 }
 
 .status-row {
@@ -908,7 +908,7 @@ span {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
- 
+  margin-left: 850px;
  
 }
 
